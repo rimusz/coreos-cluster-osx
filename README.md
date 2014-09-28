@@ -1,2 +1,2 @@
-coreos-osx-gui-cluster
+CoreOS-Vagrant Cluster GUI for Mac OS X
 ======================
