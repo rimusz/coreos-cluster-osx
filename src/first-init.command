@@ -6,13 +6,41 @@
 #  Created by Rimantas on 01/04/2014.
 #  Copyright (c) 2014 Rimantas Mocevicius. All rights reserved.
 
+### getting files from github and setting them up
+    echo ""
+    echo "Downloading latest coreos-vagrant files from github: "
+    git clone https://github.com/coreos/coreos-vagrant/ ~/coreos-osx-cluster/github
+    echo "Done downloading from github !!!"
+    echo ""
+
+    # Vagrantfile
+    cp ~/coreos-osx-cluster/github/Vagrantfile ~/coreos-osx-cluster/coreos-vagrant/Vagrantfile
+    # change VM names to corec-..
+    sed -i "" 's/core-%02d/corec-%02d/' ~/coreos-osx-cluster/coreos-vagrant/Vagrantfile
+    # change network subnet
+    sed -i "" 's/172.17.8.#{i+100}/172.17.9.#{i+100}/g' ~/coreos-osx-cluster/coreos-vagrant/Vagrantfile
+    # change corec-01 host ssh port forward
+    ~/coreos-osx-cluster/bin/gsed -i "/#config.vm.synced_folder/r $HOME/coreos-osx-cluster/tmp/Vagrantfile" ~/coreos-osx-cluster/coreos-vagrant/Vagrantfile
+    rm -f ~/coreos-osx-cluster/tmp/Vagrantfile
+
+    # config.rb file
+    # enable discovery setup
+    cat ~/coreos-osx-cluster/tmp/config.rb ~/coreos-osx-cluster/github/config.rb.sample > ~/coreos-osx-cluster/coreos-vagrant/config.rb
+    # set a size of the CoreOS cluster created by Vagrant to 3
+    sed -i "" 's/#$num_instances=1/$num_instances=3/' ~/coreos-osx-cluster/coreos-vagrant/config.rb
+    rm -f ~/coreos-osx-cluster/tmp/config.rb
+
+    # user-data file
+    cp ~/coreos-osx-cluster/github/user-data.sample ~/coreos-osx-cluster/coreos-vagrant/user-data
+###
+
 ### Set release channel
 LOOP=1
 while [ $LOOP -gt 0 ]
 do
     VALID_MAIN=0
     echo " "
-    echo " CoreOS Release Channel:"
+    echo "Set CoreOS Release Channel:"
     echo " 1)  Alpha "
     echo " 2)  Beta "
     echo " 3)  Stable "

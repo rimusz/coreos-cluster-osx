@@ -34,10 +34,7 @@
     }
     else
     {
- //       NSString *msg = [NSString stringWithFormat:@"%@ ", @"CoreOS-Vagrant Cluster was not set, run from menu 'Setup' - 'Initial setup of CoreOS-Vagrant Cluster' !!! "];
- //       [self displayWithMessage:@"CoreOS-Vagrant Cluster" infoText:msg];
-        
-        NSAlert *alert = [[NSAlert alloc] init];
+         NSAlert *alert = [[NSAlert alloc] init];
         [alert addButtonWithTitle:@"OK"];
         [alert addButtonWithTitle:@"Cancel"];
         [alert setMessageText:@"CoreOS-Vagrant Cluster was not set."];
@@ -69,7 +66,7 @@
     {
         // send a notification on to the screen
         NSUserNotification *notification = [[NSUserNotification alloc] init];
-        notification.title = @"coreos-vagrant cluster will be up shortly";
+        notification.title = @"CoreOS-Vagrant Cluster will be up shortly";
         notification.informativeText = @"and OS shell will be opened";
         [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
         
