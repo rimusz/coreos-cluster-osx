@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Coreos-osx-gui-cluster : CoreOS-Vagrant Cluster GUI for OS X">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Coreos-osx-gui-cluster</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/rimusz/coreos-osx-gui-cluster">View on GitHub</a>
+
+          <h1 id="project_title">Coreos-osx-gui-cluster</h1>
+          <h2 id="project_tagline">CoreOS-Vagrant Cluster GUI for OS X</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/rimusz/coreos-osx-gui-cluster/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/rimusz/coreos-osx-gui-cluster/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="coreos-vagrant-cluster-gui-for-os-x" class="anchor" href="#coreos-vagrant-cluster-gui-for-os-x" aria-hidden="true"><span class="octicon octicon-link"></span></a>CoreOS-Vagrant Cluster GUI for OS X</h1>
+
+<p>CoreOS-Vagrant Cluster GUI for Mac OS X is a Mac Status bar App which works like a wrapper around the <a href="https://github.com/coreos/coreos-vagrant">coreos-vagrant</a> command line tool and supports 3 cluster machines. A standalone one can be found here <a href="https://github.com/rimusz/coreos-osx-gui">CoreOS-Vagrant GUI</a>.</p>
+
+<p><a href="https://coreos.com">CoreOS</a> is a Linux distribution made specifically to run <a href="https://www.docker.io/">Docker</a> containers.
+<a href="https://github.com/coreos/coreos-vagrant">CoreOS-Vagrant</a> is made to run on VirtualBox and VMWare VMs.</p>
+
+<p><img src="coreos-vagrant-cluster-gui.png" alt="CoreOS-Vagrant-Cluster-GUI" title="CoreOS-Vagrant-Cluster-GUI"></p>
+
+<h2>
+<a id="download" class="anchor" href="#download" aria-hidden="true"><span class="octicon octicon-link"></span></a>Download</h2>
+
+<p>Head over to the <a href="https://github.com/rimusz/coreos-osx-gui-cluster/releases">Releases Page</a> to grab the latest ZIP file.</p>
+
+<h2>
+<a id="how-to-install" class="anchor" href="#how-to-install" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to install</h2>
+
+<p>Required software</p>
+
+<ul>
+<li><p><a href="https://www.virtualbox.org/wiki/Downloads">VirtualBox for Mac OS X hosts</a>, <a href="http://www.vagrantup.com/downloads.html">Vagrant for Mac OS X</a> and <a href="http://www.iterm2.com/#/section/downloads">iTerm 2</a></p></li>
+<li><p>Download <code>CoreOS Cluster GUI latest.zip</code> from the <a href="https://github.com/rimusz/coreos-osx-gui-cluster/releases">Releases Page</a> and unzip it.</p></li>
+<li>Start the <code>CoreOS Cluster GUI</code> and from menu <code>Setup</code> choose <code>Initial setup of CoreOS-Vagrant Cluster</code> </li>
+<li>The install will do the following:</li>
+</ul>
+
+<pre><code>1) All dependent files/folders will be put under "coreos-osx-cluster" folder in the user's home folder e.g /Users/someuser/coreos-osx-cluster
+2) Will clone latest coreos-vagrant from git
+3) user-data file will have fleet and etcd set
+4) 3 cluster nodes will be set with IPs: '172.17.8.100, 172.17.8.101 and 172.17.8.102'
+5) Will download and install fleetctl and etcdctl clients to ~/coreos-osx-cluster/bin/
+6) Will download latest vagrant VBox and run vagrant up to initialise VM
+8) Will forward port 2322 from localhost to core-01 ssh port 22.
+</code></pre>
+
+<h2>
+<a id="how-it-works" class="anchor" href="#how-it-works" aria-hidden="true"><span class="octicon octicon-link"></span></a>How it works</h2>
+
+<p>Just start <code>CoreOS Cluster GUI</code> application and you will find a small icon with the CoreOS logo with the (C) which means for cluster in the Status Bar.</p>
+
+<ul>
+<li>There you can <code>Up</code>, <code>Suspend</code>, <code>Halt</code>, <code>Reload</code> CoreOS vagrant VMs</li>
+<li>Under <code>Up &amp; OS shell</code> OS Shell will be opened when <code>vagrant up</code> finishes and it will have such environment set:</li>
+</ul>
+
+<pre><code>1) Path to ~/coreos-osx-cluster/bin where etcdclt and fleetctl binaries are stored
+2) FLEETCTL_TUNNEL=127.0.0.1:2322 for the fleetctl tunnel to work properly
+</code></pre>
+
+<ul>
+<li>
+<code>Updates/Force CoreOS update</code> will run <code>sudo update_engine_client -update</code> on CoreOS VMs.</li>
+<li>
+<code>Updates/Check for updates</code> will update etcdclt and fleetctl OS X clients to the same versions as CoreOS VMs run. It will store downloads from github <code>coreos-vagrant</code> in <code>~/coreos-osx-cluster/github</code> folder, it will not overwrite user's <code>Vagrantfile, config.rb and users-data</code> files.</li>
+<li>
+<code>SSH to core1/2/3</code> menu options will open VM shell</li>
+</ul>
+
+<h2>
+<a id="other-links" class="anchor" href="#other-links" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other links</h2>
+
+<ul>
+<li><p>A standalone CoreOS VM version App can be found here <a href="https://github.com/rimusz/coreos-osx-gui">CoreOS-Vagrant GUI</a>.</p></li>
+<li><p>Also you might like my other <a href="https://github.com/rimusz/boot2docker-gui-osx">boot2docker GUI for OS X</a> project for <a href="https://github.com/boot2docker/boot2docker">boot2docker</a>.</p></li>
+</ul>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Coreos-osx-gui-cluster maintained by <a href="https://github.com/rimusz">rimusz</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
