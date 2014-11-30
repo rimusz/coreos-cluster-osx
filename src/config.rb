@@ -1,4 +1,4 @@
-## Start - Inserted by CoreOS-Vagrant GUI App
+## Start - Inserted by CoreOS-Vagrant Cluster GUI App
 # Automatically set the discovery token on 'vagrant up'
 #
 if File.exists?('user-data') && ARGV[0].eql?('up')
@@ -14,4 +14,4 @@ if File.exists?('user-data') && ARGV[0].eql?('up')
   File.open('user-data', 'w') { |file| file.write("#cloud-config\n\n#{yaml}") }
 end
 #
-## End - Inserted by CoreOS-Vagrant GUI App
+## End - Inserted by CoreOS-Vagrant Cluster GUI App

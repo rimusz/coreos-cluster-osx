@@ -34,10 +34,29 @@
     }
     else
     {
-        NSString *msg = [NSString stringWithFormat:@"%@ ", @"CoreOS-Vagrant Cluster was not set, run from menu 'Setup' - 'Initial setup of CoreOS-Vagrant Cluster' to do that !!! "];
-        [self displayWithMessage:@"CoreOS-Vagrant Cluster" infoText:msg];
+ //       NSString *msg = [NSString stringWithFormat:@"%@ ", @"CoreOS-Vagrant Cluster was not set, run from menu 'Setup' - 'Initial setup of CoreOS-Vagrant Cluster' !!! "];
+ //       [self displayWithMessage:@"CoreOS-Vagrant Cluster" infoText:msg];
+        
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert addButtonWithTitle:@"OK"];
+        [alert addButtonWithTitle:@"Cancel"];
+        [alert setMessageText:@"CoreOS-Vagrant Cluster was not set."];
+        [alert setInformativeText:@"Do you want to set it up?"];
+        [alert setAlertStyle:NSWarningAlertStyle];
+        
+        if ([alert runModal] == NSAlertFirstButtonReturn) {
+            // OK clicked
+            [self initialInstall:self];
+        }
+        else
+        {
+            // Cancel clicked
+            NSString *msg = [NSString stringWithFormat:@"%@ ", @" 'Initial setup of CoreOS-Vagrant Cluster' at any time later one !!! "];
+            [self displayWithMessage:@"You can set Cluster from menu 'Setup':" infoText:msg];
+        }
+
     }
-}
+};
 
 
 - (IBAction)Start:(id)sender {
@@ -60,16 +79,31 @@
     }
     else
     {
-        NSString *msg = [NSString stringWithFormat:@"%@ ", @"App was not installed, run from menu 'Setup/Update' - 'Initial setup of CoreOS-Vagrant Cluster' !!! "];
-        [self displayWithMessage:@"CoreOS-Vagrant Cluster" infoText:msg];
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert addButtonWithTitle:@"OK"];
+        [alert addButtonWithTitle:@"Cancel"];
+        [alert setMessageText:@"CoreOS-Vagrant Cluster was not set."];
+        [alert setInformativeText:@"Do you want to set it up?"];
+        [alert setAlertStyle:NSWarningAlertStyle];
         
+        if ([alert runModal] == NSAlertFirstButtonReturn) {
+            // OK clicked
+            [self initialInstall:self];
+        }
+        else
+        {
+            // Cancel clicked
+            NSString *msg = [NSString stringWithFormat:@"%@ ", @" 'Initial setup of CoreOS-Vagrant Cluster' at any time later one !!! "];
+            [self displayWithMessage:@"You can set Cluster from menu 'Setup':" infoText:msg];
+        }
     }
 }
+
 
 - (IBAction)Pause:(id)sender {
     // send a notification on to the screen
     NSUserNotification *notification = [[NSUserNotification alloc] init];
-    notification.informativeText = @"coreos-vagrant cluster will be suspended";
+    notification.informativeText = @"CoreOS-Vagrant Cluster will be suspended";
     [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
     
     NSString *scriptName = [[NSString alloc] init];
@@ -82,7 +116,7 @@
 - (IBAction)Stop:(id)sender {
     // send a notification on to the screen
     NSUserNotification *notification = [[NSUserNotification alloc] init];
-    notification.informativeText = @"coreos-vagrant cluster will be stopped";
+    notification.informativeText = @"CoreOS-Vagrant Cluster will be stopped";
     [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
     
     NSString *scriptName = [[NSString alloc] init];
@@ -95,7 +129,7 @@
 - (IBAction)Restart:(id)sender {
     // send a notification on to the screen
     NSUserNotification *notification = [[NSUserNotification alloc] init];
-    notification.informativeText = @"coreos-vagrant cluster will be reloaded";
+    notification.informativeText = @"CoreOS-Vagrant Cluster will be reloaded";
     [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
     
     NSString *appName = [[NSString alloc] init];
@@ -136,7 +170,7 @@
 - (IBAction)changeReleaseChannel:(id)sender {
     // send a notification on to the screen
     NSUserNotification *notification = [[NSUserNotification alloc] init];
-    notification.informativeText = @"coreos-vagrant release channel change";
+    notification.informativeText = @"CoreOS-Vagrant Cluster release channel change";
     [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
     
     NSString *appName = [[NSString alloc] init];
@@ -149,7 +183,7 @@
 - (IBAction)destroy:(id)sender {
     // send a notification on to the screen
     NSUserNotification *notification = [[NSUserNotification alloc] init];
-    notification.informativeText = @"coreos-vagrant cluster will be destroyed";
+    notification.informativeText = @"CoreOS-Vagrant Cluster will be destroyed";
     [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
     
     NSString *appName = [[NSString alloc] init];
@@ -195,7 +229,7 @@
 - (IBAction)runSsh1:(id)sender {
     // send a notification on to the screen
     NSUserNotification *notification = [[NSUserNotification alloc] init];
-    notification.informativeText = @"vagrant ssh shell to core-01 will be opened";
+    notification.informativeText = @"vagrant ssh shell to corec-01 will be opened";
     [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
     
     NSString *appName = [[NSString alloc] init];
@@ -206,7 +240,7 @@
 - (IBAction)runSsh2:(id)sender {
     // send a notification on to the screen
     NSUserNotification *notification = [[NSUserNotification alloc] init];
-    notification.informativeText = @"vagrant ssh shell to core-02 will be opened";
+    notification.informativeText = @"vagrant ssh shell to corec-02 will be opened";
     [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
     
     NSString *appName = [[NSString alloc] init];
@@ -217,7 +251,7 @@
 - (IBAction)runSsh3:(id)sender {
     // send a notification on to the screen
     NSUserNotification *notification = [[NSUserNotification alloc] init];
-    notification.informativeText = @"vagrant ssh shell to core-03 will be opened";
+    notification.informativeText = @"vagrant ssh shell to corec-03 will be opened";
     [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
     
     NSString *appName = [[NSString alloc] init];

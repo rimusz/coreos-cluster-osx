@@ -12,14 +12,14 @@ read -p "$*"
 
 cd ~/coreos-osx-cluster/coreos-vagrant
 vagrant up
-vagrant ssh core-01 -c "sudo update_engine_client -update"
-echo "Done with core-01 "
+vagrant ssh corec-01 -c "sudo update_engine_client -update"
+echo "Done with corec-01 "
 echo " "
-vagrant ssh core-02 -c "sudo update_engine_client -update"
-echo "Done with core-02 "
+vagrant ssh corec-02 -c "sudo update_engine_client -update"
+echo "Done with corec-02 "
 echo " "
-vagrant ssh core-03 -c "sudo update_engine_client -update"
-echo "Done with core-03 "
+vagrant ssh corec-03 -c "sudo update_engine_client -update"
+echo "Done with corec-03 "
 echo " "
 
 echo "Update has finished !!!"
