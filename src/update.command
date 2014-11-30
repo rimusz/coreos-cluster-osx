@@ -22,7 +22,7 @@ echo " "
 
 # download latest versions of etcdctl and fleetctl
 cd ~/coreos-osx-cluster/coreos-vagrant
-LATEST_RELEASE=$(vagrant ssh core-01 -c "etcdctl --version" | cut -d " " -f 3- | tr -d '\r' )
+LATEST_RELEASE=$(vagrant ssh corec-01 -c "etcdctl --version" | cut -d " " -f 3- | tr -d '\r' )
 cd ~/coreos-osx-cluster/bin
 echo "Downloading etcdctl $LATEST_RELEASE for OS X"
 curl -L -o etcd.zip "https://github.com/coreos/etcd/releases/download/v$LATEST_RELEASE/etcd-v$LATEST_RELEASE-darwin-amd64.zip"
@@ -31,7 +31,7 @@ rm -f etcd.zip
 echo "etcdctl was copied to ~/coreos-osx-cluster/bin "
 #
 cd ~/coreos-osx-cluster/coreos-vagrant
-LATEST_RELEASE=$(vagrant ssh core-01 -c 'fleetctl version' | cut -d " " -f 3- | tr -d '\r')
+LATEST_RELEASE=$(vagrant ssh corec-01 -c 'fleetctl version' | cut -d " " -f 3- | tr -d '\r')
 cd ~/coreos-osx-cluster/bin
 echo "Downloading fleetctl v$LATEST_RELEASE for OS X"
 curl -L -o fleet.zip "https://github.com/coreos/fleet/releases/download/v$LATEST_RELEASE/fleet-v$LATEST_RELEASE-darwin-amd64.zip"

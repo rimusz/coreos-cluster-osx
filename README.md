@@ -23,13 +23,14 @@ Required software
 * Start the `CoreOS Cluster GUI` and from menu `Setup` choose `Initial setup of CoreOS-Vagrant Cluster` 
 * The install will do the following:
 ````
-1) All dependent files/folders will be put under "coreos-osx-cluster" folder in the user's home folder e.g /Users/someuser/coreos-osx-cluster
+1) All dependent files/folders will be put under 'coreos-osx-cluster' folder in the user's 
+ home folder e.g '/Users/someuser/coreos-osx-cluster'
 2) Will clone latest coreos-vagrant from git
 3) user-data file will have fleet and etcd set
-4) 3 cluster nodes will be set with IPs: '172.17.8.100, 172.17.8.101 and 172.17.8.102'
+4) 3 cluster nodes will be set with IPs: '172.17.9.100, 172.17.9.101 and 172.17.9.102'
 5) Will download and install fleetctl and etcdctl clients to ~/coreos-osx-cluster/bin/
 6) Will download latest vagrant VBox and run vagrant up to initialise VM
-8) Will forward port 2322 from localhost to core-01 ssh port 22.
+8) Will forward port 2322 from localhost to corec-01 ssh port 22.
 ````
 
 How it works
@@ -40,13 +41,15 @@ Just start `CoreOS Cluster GUI` application and you will find a small icon with 
 * There you can `Up`, `Suspend`, `Halt`, `Reload` CoreOS vagrant VMs
 * Under `Up & OS shell` OS Shell will be opened when `vagrant up` finishes and it will have such environment set:
 ````
-1) Path to ~/coreos-osx-cluster/bin where etcdclt and fleetctl binaries are stored
-2) FLEETCTL_TUNNEL=127.0.0.1:2322 for the fleetctl tunnel to work properly
+1) etcd discovery token will be automaticly replaced from 'https://discovery.etcd.io/new' 
+on each 'vagrant up'
+2) Path to ~/coreos-osx-cluster/bin where etcdclt and fleetctl binaries are stored
+3) FLEETCTL_TUNNEL=127.0.0.1:2322 for the fleetctl tunnel to work properly
 ````
 
-* `Updates/Force CoreOS update` will run `sudo update_engine_client -update` on CoreOS VMs.
+* `Updates/Force CoreOS update` will be run `sudo update_engine_client -update` on each CoreOS VM.
 * `Updates/Check for updates` will update etcdclt and fleetctl OS X clients to the same versions as CoreOS VMs run. It will store downloads from github `coreos-vagrant` in `~/coreos-osx-cluster/github` folder, it will not overwrite user's `Vagrantfile, config.rb and users-data` files.
-* `SSH to core1/2/3` menu options will open VM shell
+* `SSH to corec-01/02/03` menu options will open VM shells
 
 
 Other links

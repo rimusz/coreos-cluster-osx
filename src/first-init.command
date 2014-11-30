@@ -68,13 +68,13 @@ vagrant box update
 vagrant up
 
 # Add vagrant ssh key to ssh-agent
-###ssh-add ~/.vagrant.d/insecure_private_key
-vagrant ssh-config core-01 | sed -n "s/IdentityFile//gp" | xargs ssh-add
+###vagrant ssh-config core-01 | sed -n "s/IdentityFile//gp" | xargs ssh-add
+ssh-add ~/.vagrant.d/insecure_private_key
 
 # download etcdctl and fleetctl
 #
 cd ~/coreos-osx-cluster/coreos-vagrant
-LATEST_RELEASE=$(vagrant ssh core-01 -c "etcdctl --version" | cut -d " " -f 3- | tr -d '\r' )
+LATEST_RELEASE=$(vagrant ssh corec-01 -c "etcdctl --version" | cut -d " " -f 3- | tr -d '\r' )
 cd ~/coreos-osx-cluster/bin
 echo "Downloading etcdctl $LATEST_RELEASE for OS X"
 curl -L -o etcd.zip "https://github.com/coreos/etcd/releases/download/v$LATEST_RELEASE/etcd-v$LATEST_RELEASE-darwin-amd64.zip"
@@ -82,7 +82,7 @@ unzip -j -o "etcd.zip" "etcd-v$LATEST_RELEASE-darwin-amd64/etcdctl"
 rm -f etcd.zip
 #
 cd ~/coreos-osx-cluster/coreos-vagrant
-LATEST_RELEASE=$(vagrant ssh core-01 -c 'fleetctl version' | cut -d " " -f 3- | tr -d '\r')
+LATEST_RELEASE=$(vagrant ssh corec-01 -c 'fleetctl version' | cut -d " " -f 3- | tr -d '\r')
 cd ~/coreos-osx-cluster/bin
 echo "Downloading fleetctl v$LATEST_RELEASE for OS X"
 curl -L -o fleet.zip "https://github.com/coreos/fleet/releases/download/v$LATEST_RELEASE/fleet-v$LATEST_RELEASE-darwin-amd64.zip"

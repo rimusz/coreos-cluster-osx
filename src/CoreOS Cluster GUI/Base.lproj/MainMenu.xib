@@ -685,19 +685,19 @@
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="jV7-Ne-Ped"/>
-                <menuItem title="SSH to core-01" id="dvF-TI-XNx">
+                <menuItem title="SSH to corec-01" id="dvF-TI-XNx">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="runSsh1:" target="494" id="MQP-2q-QP0"/>
                     </connections>
                 </menuItem>
-                <menuItem title="SSH to core-02" id="93Y-3j-w7s">
+                <menuItem title="SSH to corec-02" id="93Y-3j-w7s">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="runSsh2:" target="494" id="kdd-B4-CSh"/>
                     </connections>
                 </menuItem>
-                <menuItem title="SSH to core-03" id="hQV-nK-suP">
+                <menuItem title="SSH to corec-03" id="hQV-nK-suP">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="runSsh3:" target="494" id="deR-gE-bQ0"/>

@@ -24,7 +24,11 @@
 
     # Vagrantfile
     cp ~/coreos-osx-cluster/github/Vagrantfile ~/coreos-osx-cluster/coreos-vagrant/Vagrantfile
-    # change core-01 host ssh port forward
+    # chnage VM names to corec-..
+    sed -i "" 's/core-%02d/corec-%02d/' ~/coreos-osx-cluster/coreos-vagrant/Vagrantfile
+    # change network subnet
+    sed -i "" 's/172.17.8.#{i+100}/172.17.9.#{i+100}/g' ~/coreos-osx-cluster/coreos-vagrant/Vagrantfile
+    # change corec-01 host ssh port forward
     cp "$1"/Vagrantfile ~/coreos-osx-cluster/tmp/Vagrantfile
     "$1"/gsed -i "/#config.vm.synced_folder/r $HOME/coreos-osx-cluster/tmp/Vagrantfile" ~/coreos-osx-cluster/coreos-vagrant/Vagrantfile
     rm -f ~/coreos-osx-cluster/tmp/Vagrantfile

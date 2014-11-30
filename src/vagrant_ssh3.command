@@ -7,5 +7,5 @@
 #  Copyright (c) 2014 Rimantas Mocevicius. All rights reserved.
 
 cd ~/coreos-osx-cluster/coreos-vagrant
-vagrant ssh core-03
+vagrant ssh corec-03 -- -A
 
