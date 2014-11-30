@@ -24,7 +24,7 @@ Required software
 * The install will do the following:
 ````
 1) All dependent files/folders will be put under 'coreos-osx-cluster' folder in the user's 
-home folder e.g '/Users/someuser/coreos-osx-cluster'
+ home folder e.g '/Users/someuser/coreos-osx-cluster'
 2) Will clone latest coreos-vagrant from git
 3) user-data file will have fleet and etcd set
 4) 3 cluster nodes will be set with IPs: '172.17.9.100, 172.17.9.101 and 172.17.9.102'
@@ -41,7 +41,7 @@ Just start `CoreOS Cluster GUI` application and you will find a small icon with 
 * There you can `Up`, `Suspend`, `Halt`, `Reload` CoreOS vagrant VMs
 * Under `Up & OS shell` OS Shell will be opened when `vagrant up` finishes and it will have such environment set:
 ````
-1) etcd discovey token will be automaticly replaced from 'https://discovery.etcd.io/new' 
+1) etcd discovery token will be automaticly replaced from 'https://discovery.etcd.io/new' 
 on each 'vagrant up'
 2) Path to ~/coreos-osx-cluster/bin where etcdclt and fleetctl binaries are stored
 3) FLEETCTL_TUNNEL=127.0.0.1:2322 for the fleetctl tunnel to work properly
