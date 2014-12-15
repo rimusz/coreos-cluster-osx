@@ -16,6 +16,9 @@
     # cd to App's Resources folder
     cd "$1"
 
+    # copy fleet units
+    cp "$1"/fleet/*.service ~/coreos-osx-cluster/fleet/
+
     # copy gsed to ~/coreos-osx-cluster/bin
     cp "$1"/gsed ~/coreos-osx-cluster/bin
     chmod 755 ~/coreos-osx-cluster/bin/gsed

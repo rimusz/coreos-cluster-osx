@@ -96,8 +96,8 @@ vagrant box update
 vagrant up
 
 # Add vagrant ssh key to ssh-agent
-###vagrant ssh-config core-01 | sed -n "s/IdentityFile//gp" | xargs ssh-add
-ssh-add ~/.vagrant.d/insecure_private_key
+vagrant ssh-config corec-01 | sed -n "s/IdentityFile//gp" | xargs ssh-add
+###ssh-add ~/.vagrant.d/insecure_private_key
 
 # download etcdctl and fleetctl
 #
@@ -121,8 +121,18 @@ export FLEETCTL_TUNNEL=127.0.0.1:2322
 export FLEETCTL_STRICT_HOST_KEY_CHECKING=false
 echo "fleetctl list-machines :"
 fleetctl list-machines
-#
 echo ""
+# install fleet units
+echo "Installing fleet units from '~/coreos-osx/fleet' folder"
+cd ~/coreos-osx-cluster/fleet
+~/coreos-osx-cluster/bin/fleetctl --strict-host-key-checking=false submit fleet-ui.*.service
+~/coreos-osx-cluster/bin/fleetctl --strict-host-key-checking=false start fleet-ui.*.service
+~/coreos-osx-cluster/bin/fleetctl --strict-host-key-checking=false submit *.service
+~/coreos-osx-cluster/bin/fleetctl --strict-host-key-checking=false start *.service
+echo "Finished installing fleet units:"
+fleetctl list-units
+echo " "
+#
 echo "Installation has finished, CoreOS VMs are up and running !!!"
 echo "Enjoy CoreOS-Vagrant Cluster on your Mac !!!"
 echo ""

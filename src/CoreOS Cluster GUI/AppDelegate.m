@@ -222,6 +222,10 @@
     [self displayWithMessage:mText infoText:infoText];
 }
 
+- (IBAction)fleetUI:(id)sender {
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://172.17.9.101:3000"]];
+}
+
 // ssh to hosts
 - (IBAction)runSsh1:(id)sender {
     // send a notification on to the screen
