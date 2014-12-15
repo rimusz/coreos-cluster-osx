@@ -16,6 +16,7 @@
 		011BBA3D1A2A88EA00AAB35B /* config.rb in Resources */ = {isa = PBXBuildFile; fileRef = 011BBA3C1A2A88EA00AAB35B /* config.rb */; };
 		011BBA3F1A2A94A100AAB35B /* vagrant_reload.command in Resources */ = {isa = PBXBuildFile; fileRef = 011BBA3E1A2A94A100AAB35B /* vagrant_reload.command */; };
 		0145318418FF209D007F9C95 /* coreos-vagrant.command in Resources */ = {isa = PBXBuildFile; fileRef = 0145318318FF209D007F9C95 /* coreos-vagrant.command */; };
+		016A37F11A3F96710062386D /* fleet in Resources */ = {isa = PBXBuildFile; fileRef = 016A37F01A3F96710062386D /* fleet */; };
 		01741B57190DB7B800BB1F91 /* coreos-vagrant-install.command in Resources */ = {isa = PBXBuildFile; fileRef = 01741B56190DB7B800BB1F91 /* coreos-vagrant-install.command */; };
 		01741B5F190DB7E300BB1F91 /* vagrant_ssh1.command in Resources */ = {isa = PBXBuildFile; fileRef = 01741B5E190DB7E300BB1F91 /* vagrant_ssh1.command */; };
 		01741B63190DB80500BB1F91 /* first-init.command in Resources */ = {isa = PBXBuildFile; fileRef = 01741B62190DB80500BB1F91 /* first-init.command */; };
@@ -46,6 +47,7 @@
 		011BBA3E1A2A94A100AAB35B /* vagrant_reload.command */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = vagrant_reload.command; sourceTree = "<group>"; };
 		0133608F18A70E0C0024B1CB /* CoreOS Cluster GUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "CoreOS Cluster GUI.entitlements"; sourceTree = "<group>"; };
 		0145318318FF209D007F9C95 /* coreos-vagrant.command */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "coreos-vagrant.command"; sourceTree = "<group>"; };
+		016A37F01A3F96710062386D /* fleet */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fleet; sourceTree = SOURCE_ROOT; };
 		01741B56190DB7B800BB1F91 /* coreos-vagrant-install.command */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "coreos-vagrant-install.command"; sourceTree = SOURCE_ROOT; };
 		01741B5E190DB7E300BB1F91 /* vagrant_ssh1.command */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = vagrant_ssh1.command; sourceTree = SOURCE_ROOT; };
 		01741B62190DB80500BB1F91 /* first-init.command */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "first-init.command"; sourceTree = SOURCE_ROOT; };
@@ -88,6 +90,7 @@
 		014E6F8B18B63AF700E697C0 /* Installation Files */ = {
 			isa = PBXGroup;
 			children = (
+				016A37F01A3F96710062386D /* fleet */,
 				01AD94B71A277708009A400B /* gsed */,
 				011BBA3C1A2A88EA00AAB35B /* config.rb */,
 				01AB706119D84622003B55EF /* Vagrantfile */,
@@ -273,6 +276,7 @@
 				011BBA311A2A6E2500AAB35B /* coreos-wordmark-vert-color.png in Resources */,
 				01E2854E18A6C4E300BC630D /* Credits.rtf in Resources */,
 				01E2855418A6C4E300BC630D /* MainMenu.xib in Resources */,
+				016A37F11A3F96710062386D /* fleet in Resources */,
 				01741B67190DB82100BB1F91 /* update.command in Resources */,
 				011BBA351A2A7B0600AAB35B /* vagrant_ssh3.command in Resources */,
 			);
