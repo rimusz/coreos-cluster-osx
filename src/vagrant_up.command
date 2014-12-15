@@ -23,8 +23,10 @@ echo "fleetctl list-machines:"
 fleetctl list-machines
 echo ""
 # install fleet units
-echo "Installing fleet units from '~/coreos-osx/fleet' folder"
+echo "Installing fleet units from '~/coreos-osx-cluster/fleet' folder"
 cd ~/coreos-osx-cluster/fleet
+~/coreos-osx-cluster/bin/fleetctl --strict-host-key-checking=false submit fleet-ui.*.service
+~/coreos-osx-cluster/bin/fleetctl --strict-host-key-checking=false start fleet-ui.*.service
 ~/coreos-osx-cluster/bin/fleetctl --strict-host-key-checking=false submit *.service
 ~/coreos-osx-cluster/bin/fleetctl --strict-host-key-checking=false start *.service
 echo "Finished installing fleet units:"
