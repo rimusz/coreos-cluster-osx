@@ -691,22 +691,22 @@
                         <action selector="runShell:" target="494" id="2YL-Ek-k33"/>
                     </connections>
                 </menuItem>
-                <menuItem title="SSH to corec-01" id="uFv-AR-Egm">
+                <menuItem title="SSH to control-01" id="uFv-AR-Egm">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
-                        <action selector="runSsh1:" target="494" id="m4c-rX-FAL"/>
+                        <action selector="runControl1:" target="494" id="MzC-Zb-H0E"/>
                     </connections>
                 </menuItem>
-                <menuItem title="SSH to corec-02" id="93Y-3j-w7s">
+                <menuItem title="SSH to node-01" id="93Y-3j-w7s">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
-                        <action selector="runSsh2:" target="494" id="kdd-B4-CSh"/>
+                        <action selector="runNode1:" target="494" id="buh-Y8-J9f"/>
                     </connections>
                 </menuItem>
-                <menuItem title="SSH to corec-03" id="hQV-nK-suP">
+                <menuItem title="SSH to node-02" id="hQV-nK-suP">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
-                        <action selector="runSsh3:" target="494" id="deR-gE-bQ0"/>
+                        <action selector="runNode2:" target="494" id="UCO-hw-Msg"/>
                     </connections>
                 </menuItem>
                 <menuItem title="Fleet-UI" id="7cD-x6-wub">

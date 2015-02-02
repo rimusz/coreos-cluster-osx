@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #  change_release_channel.command
-#  CoreOS Cluster GUI for OS X
+#  CoreOS Cluster for OS X
 #
 #  Created by Rimantas on 01/04/2014.
 #  Copyright (c) 2014 Rimantas Mocevicius. All rights reserved.
@@ -13,7 +13,7 @@ while [ $LOOP -gt 0 ]
 do
     VALID_MAIN=0
     echo " "
-    echo " CoreOS Release Channel:"
+    echo "Set CoreOS Release Channel:"
     echo " 1)  Alpha "
     echo " 2)  Beta "
     echo " 3)  Stable "
@@ -26,9 +26,13 @@ do
     if [ $RESPONSE = 1 ]
     then
         VALID_MAIN=1
-        sed -i "" 's/#$update_channel/$update_channel/' ~/coreos-osx-cluster/coreos-vagrant/config.rb
-        sed -i "" "s/channel='stable'/channel='alpha'/" ~/coreos-osx-cluster/coreos-vagrant/config.rb
-        sed -i "" "s/channel='beta'/channel='alpha'/" ~/coreos-osx-cluster/coreos-vagrant/config.rb
+        sed -i "" 's/#$update_channel/$update_channel/' ~/coreos-osx-cluster/control/config.rb
+        sed -i "" "s/channel='stable'/channel='alpha'/" ~/coreos-osx-cluster/control/config.rb
+        sed -i "" "s/channel='beta'/channel='alpha'/" ~/coreos-osx-cluster/control/config.rb
+        #
+        sed -i "" 's/#$update_channel/$update_channel/' ~/coreos-osx-cluster/workers/config.rb
+        sed -i "" "s/channel='stable'/channel='alpha'/" ~/coreos-osx-cluster/workers/config.rb
+        sed -i "" "s/channel='beta'/channel='alpha'/" ~/coreos-osx-cluster/workers/config.rb
         channel="Alpha"
         LOOP=0
     fi
@@ -36,9 +40,13 @@ do
     if [ $RESPONSE = 2 ]
     then
         VALID_MAIN=1
-        sed -i "" 's/#$update_channel/$update_channel/' ~/coreos-osx-cluster/coreos-vagrant/config.rb
-        sed -i "" "s/channel='alpha'/channel='beta'/" ~/coreos-osx-cluster/coreos-vagrant/config.rb
-        sed -i "" "s/channel='stable'/channel='beta'/" ~/coreos-osx-cluster/coreos-vagrant/config.rb
+        sed -i "" 's/#$update_channel/$update_channel/' ~/coreos-osx-cluster/control/config.rb
+        sed -i "" "s/channel='alpha'/channel='beta'/" ~/coreos-osx-cluster/control/config.rb
+        sed -i "" "s/channel='stable'/channel='beta'/" ~/coreos-osx-cluster/control/config.rb
+        #
+        sed -i "" 's/#$update_channel/$update_channel/' ~/coreos-osx-cluster/workers/config.rb
+        sed -i "" "s/channel='alpha'/channel='beta'/" ~/coreos-osx-cluster/workers/config.rb
+        sed -i "" "s/channel='stable'/channel='beta'/" ~/coreos-osx-cluster/workers/config.rb
         channel="Beta"
         LOOP=0
     fi
@@ -46,9 +54,13 @@ do
     if [ $RESPONSE = 3 ]
     then
         VALID_MAIN=1
-        sed -i "" 's/#$update_channel/$update_channel/' ~/coreos-osx-cluster/coreos-vagrant/config.rb
-        sed -i "" "s/channel='alpha'/channel='stable'/" ~/coreos-osx-cluster/coreos-vagrant/config.rb
-        sed -i "" "s/channel='beta'/channel='stable'/" ~/coreos-osx-cluster/coreos-vagrant/config.rb
+        sed -i "" 's/#$update_channel/$update_channel/' ~/coreos-osx-cluster/control/config.rb
+        sed -i "" "s/channel='alpha'/channel='stable'/" ~/coreos-osx-cluster/control/config.rb
+        sed -i "" "s/channel='beta'/channel='stable'/" ~/coreos-osx-cluster/control/config.rb
+        #
+        sed -i "" 's/#$update_channel/$update_channel/' ~/coreos-osx-cluster/workers/config.rb
+        sed -i "" "s/channel='alpha'/channel='stable'/" ~/coreos-osx-cluster/workers/config.rb
+        sed -i "" "s/channel='beta'/channel='stable'/" ~/coreos-osx-cluster/workers/config.rb
         channel="Stable"
         LOOP=0
     fi
@@ -67,5 +79,5 @@ read -p "$*"
 #
 echo "The 'config.rb' file was updated to $channel channel !!!"
 echo "You need to run 'Destroy Cluster (vagrant destroy)' and then"
-echo "on next 'Up & OS shell' new cluster will be created !!!"
+echo "on next 'Up' new cluster will be created !!!"
 pause 'Press [Enter] key to continue...'

@@ -226,12 +226,12 @@
 - (IBAction)runShell:(id)sender {
     // send a notification on to the screen
     NSUserNotification *notification = [[NSUserNotification alloc] init];
-    notification.informativeText = @"vagrant ssh shell to corec-01 will be opened";
+    notification.informativeText = @"OS Shell will be opened";
     [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
     
     NSString *appName = [[NSString alloc] init];
     NSString *arguments = [[NSString alloc] init];
-    [self runApp:appName = @"iTerm" arguments:arguments = [_resoucesPathFromApp stringByAppendingPathComponent:@"vagrant_ssh1.command"]];
+    [self runApp:appName = @"iTerm" arguments:arguments = [_resoucesPathFromApp stringByAppendingPathComponent:@"os_shell.command"]];
 }
 
 - (IBAction)fleetUI:(id)sender {
@@ -240,38 +240,37 @@
 
 
 // ssh to hosts
-- (IBAction)runSsh1:(id)sender {
+- (IBAction)runControl1:(id)sender {
     // send a notification on to the screen
     NSUserNotification *notification = [[NSUserNotification alloc] init];
-    notification.informativeText = @"vagrant ssh shell to corec-01 will be opened";
+    notification.informativeText = @"vagrant ssh shell to control-01 will be opened";
     [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
     
     NSString *appName = [[NSString alloc] init];
     NSString *arguments = [[NSString alloc] init];
-    [self runApp:appName = @"iTerm" arguments:arguments = [_resoucesPathFromApp stringByAppendingPathComponent:@"vagrant_ssh1.command"]];
+    [self runApp:appName = @"iTerm" arguments:arguments = [_resoucesPathFromApp stringByAppendingPathComponent:@"vagrant_control1.command"]];
 }
 
-
-- (IBAction)runSsh2:(id)sender {
+- (IBAction)runNode1:(id)sender {
     // send a notification on to the screen
     NSUserNotification *notification = [[NSUserNotification alloc] init];
-    notification.informativeText = @"vagrant ssh shell to corec-02 will be opened";
+    notification.informativeText = @"vagrant ssh shell to node-01 will be opened";
     [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
     
     NSString *appName = [[NSString alloc] init];
     NSString *arguments = [[NSString alloc] init];
-    [self runApp:appName = @"iTerm" arguments:arguments = [_resoucesPathFromApp stringByAppendingPathComponent:@"vagrant_ssh2.command"]];
+    [self runApp:appName = @"iTerm" arguments:arguments = [_resoucesPathFromApp stringByAppendingPathComponent:@"vagrant_node1.command"]];
 }
 
-- (IBAction)runSsh3:(id)sender {
+- (IBAction)runNode2:(id)sender {
     // send a notification on to the screen
     NSUserNotification *notification = [[NSUserNotification alloc] init];
-    notification.informativeText = @"vagrant ssh shell to corec-03 will be opened";
+    notification.informativeText = @"vagrant ssh shell to node-02 will be opened";
     [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
     
     NSString *appName = [[NSString alloc] init];
     NSString *arguments = [[NSString alloc] init];
-    [self runApp:appName = @"iTerm" arguments:arguments = [_resoucesPathFromApp stringByAppendingPathComponent:@"vagrant_ssh3.command"]];
+    [self runApp:appName = @"iTerm" arguments:arguments = [_resoucesPathFromApp stringByAppendingPathComponent:@"vagrant_node2.command"]];
 }
 // ssh to hosts
 
