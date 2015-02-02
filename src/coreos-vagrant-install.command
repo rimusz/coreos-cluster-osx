@@ -28,6 +28,8 @@
     cp "$1"/Vagrantfile ~/coreos-osx-cluster/tmp/Vagrantfile
     # config.rb file
     cp "$1"/config.rb ~/coreos-osx-cluster/tmp/config.rb
+    # user-data
+    cp "$1"/user-data ~/coreos-osx-cluster/tmp/user-data
 
     # initial init
     open -a iTerm.app "$1"/first-init.command

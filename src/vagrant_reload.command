@@ -14,30 +14,27 @@ cd ~/coreos-osx-cluster/coreos-vagrant
 vagrant reload
 
 # path to the bin folder where we store our binary files
-export PATH=$PATH:${HOME}/coreos-osx-cluster/bin
+export PATH=${HOME}/coreos-osx-cluster/bin:$PATH
 
-# set fleetctl tunnel
-# Add vagrant ssh key to ssh-agent
-###vagrant ssh-config corec-01 | sed -n "s/IdentityFile//gp" | xargs ssh-add
-###ssh-add ~/.vagrant.d/insecure_private_key
+# set etcd endpoint
+export ETCDCTL_PEERS=http://172.17.9.101:4001
+echo "etcd cluster:"
+etcdctl --no-sync ls /
+echo ""
 
-export FLEETCTL_TUNNEL=127.0.0.1:2322
+# set fleetctl endpoint
+export FLEETCTL_ENDPOINT=http://172.17.9.101:4001
 export FLEETCTL_STRICT_HOST_KEY_CHECKING=false
 echo "fleetctl list-machines :"
 fleetctl list-machines
+echo " "
 
-# install fleet units
-echo "Installing fleet units from '~/coreos-osx-cluster/fleet' folder"
-cd ~/coreos-osx-cluster/fleet
-~/coreos-osx-cluster/bin/fleetctl --strict-host-key-checking=false submit fleet-ui.*.service
-~/coreos-osx-cluster/bin/fleetctl --strict-host-key-checking=false start fleet-ui.*.service
-~/coreos-osx-cluster/bin/fleetctl --strict-host-key-checking=false submit *.service
-~/coreos-osx-cluster/bin/fleetctl --strict-host-key-checking=false start *.service
-echo "Finished installing fleet units:"
+# list fleet units
+echo "fleet units:"
 fleetctl list-units
 echo " "
 
-echo ""
+echo " "
 echo "CoreOS Cluster was reloaded !!!"
-echo ""
+echo " "
 pause 'Press [Enter] key to continue...'

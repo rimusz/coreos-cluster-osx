@@ -222,9 +222,22 @@
     [self displayWithMessage:mText infoText:infoText];
 }
 
+//
+- (IBAction)runShell:(id)sender {
+    // send a notification on to the screen
+    NSUserNotification *notification = [[NSUserNotification alloc] init];
+    notification.informativeText = @"vagrant ssh shell to corec-01 will be opened";
+    [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
+    
+    NSString *appName = [[NSString alloc] init];
+    NSString *arguments = [[NSString alloc] init];
+    [self runApp:appName = @"iTerm" arguments:arguments = [_resoucesPathFromApp stringByAppendingPathComponent:@"vagrant_ssh1.command"]];
+}
+
 - (IBAction)fleetUI:(id)sender {
     [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://172.17.9.101:3000"]];
 }
+
 
 // ssh to hosts
 - (IBAction)runSsh1:(id)sender {
@@ -237,6 +250,7 @@
     NSString *arguments = [[NSString alloc] init];
     [self runApp:appName = @"iTerm" arguments:arguments = [_resoucesPathFromApp stringByAppendingPathComponent:@"vagrant_ssh1.command"]];
 }
+
 
 - (IBAction)runSsh2:(id)sender {
     // send a notification on to the screen
