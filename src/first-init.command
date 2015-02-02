@@ -14,13 +14,13 @@
     echo ""
 
     # Vagrantfile
-    cp ~/coreos-osx-cluster/github/Vagrantfile ~/coreos-osx-cluster/coreos-vagrant/Vagrantfile
+    ### cp ~/coreos-osx-cluster/github/Vagrantfile ~/coreos-osx-cluster/coreos-vagrant/Vagrantfile
     # change VM names to corec-..
     sed -i "" 's/core-%02d/corec-%02d/' ~/coreos-osx-cluster/coreos-vagrant/Vagrantfile
     # change network subnet
     sed -i "" 's/172.17.8.#{i+100}/172.17.9.#{i+100}/g' ~/coreos-osx-cluster/coreos-vagrant/Vagrantfile
     # change corec-01 host ssh port forward
-    ~/coreos-osx-cluster/bin/gsed -i "/#config.vm.synced_folder/r $HOME/coreos-osx-cluster/tmp/Vagrantfile" ~/coreos-osx-cluster/coreos-vagrant/Vagrantfile
+    ### ~/coreos-osx-cluster/bin/gsed -i "/#config.vm.synced_folder/r $HOME/coreos-osx-cluster/tmp/Vagrantfile" ~/coreos-osx-cluster/coreos-vagrant/Vagrantfile
     rm -f ~/coreos-osx-cluster/tmp/Vagrantfile
 
     # config.rb file
@@ -28,10 +28,10 @@
     cat ~/coreos-osx-cluster/tmp/config.rb ~/coreos-osx-cluster/github/config.rb.sample > ~/coreos-osx-cluster/coreos-vagrant/config.rb
     # set a size of the CoreOS cluster created by Vagrant to 3
     sed -i "" 's/#$num_instances=1/$num_instances=3/' ~/coreos-osx-cluster/coreos-vagrant/config.rb
-    rm -f ~/coreos-osx-cluster/tmp/config.rb
+    ### rm -f ~/coreos-osx-cluster/tmp/config.rb
 
     # user-data file
-    cp ~/coreos-osx-cluster/github/user-data.sample ~/coreos-osx-cluster/coreos-vagrant/user-data
+    cat ~/coreos-osx-cluster/github/user-data.sample ~/coreos-osx-cluster/tmp/user-data > ~/coreos-osx-cluster/coreos-vagrant/user-data
 ###
 
 ### Set release channel
@@ -116,8 +116,8 @@ echo "Downloading fleetctl v$LATEST_RELEASE for OS X"
 curl -L -o fleet.zip "https://github.com/coreos/fleet/releases/download/v$LATEST_RELEASE/fleet-v$LATEST_RELEASE-darwin-amd64.zip"
 unzip -j -o "fleet.zip" "fleet-v$LATEST_RELEASE-darwin-amd64/fleetctl"
 rm -f fleet.zip
-# set fleetctl tunnel
-export FLEETCTL_TUNNEL=127.0.0.1:2322
+# set fleetctl endpoint
+export FLEETCTL_ENDPOINT=http://172.17.9.101:4001
 export FLEETCTL_STRICT_HOST_KEY_CHECKING=false
 echo "fleetctl list-machines :"
 fleetctl list-machines
@@ -125,10 +125,10 @@ echo ""
 # install fleet units
 echo "Installing fleet units from '~/coreos-osx/fleet' folder"
 cd ~/coreos-osx-cluster/fleet
-~/coreos-osx-cluster/bin/fleetctl --strict-host-key-checking=false submit fleet-ui.*.service
-~/coreos-osx-cluster/bin/fleetctl --strict-host-key-checking=false start fleet-ui.*.service
-~/coreos-osx-cluster/bin/fleetctl --strict-host-key-checking=false submit *.service
-~/coreos-osx-cluster/bin/fleetctl --strict-host-key-checking=false start *.service
+~/coreos-osx-cluster/bin/fleetctl submit fleet-ui.*.service
+~/coreos-osx-cluster/bin/fleetctl start fleet-ui.*.service
+~/coreos-osx-cluster/bin/fleetctl submit *.service
+~/coreos-osx-cluster/bin/fleetctl start *.service
 echo "Finished installing fleet units:"
 fleetctl list-units
 echo " "
@@ -136,7 +136,7 @@ echo " "
 echo "Installation has finished, CoreOS VMs are up and running !!!"
 echo "Enjoy CoreOS-Vagrant Cluster on your Mac !!!"
 echo ""
-echo "Run from menu 'Up & OS Shell' to open a terninal window preset with fleetctl and etcdctl to cluster settings"
+echo "Run from menu 'Up' to open a terninal window preset with fleetctl and etcdctl to cluster settings"
 echo ""
 pause 'Press [Enter] key to continue...'
 
