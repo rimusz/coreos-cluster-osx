@@ -25,6 +25,9 @@ echo "fleetctl list-machines:"
 fleetctl list-machines
 echo ""
 # list fleet units
+cd ~/coreos-osx-cluster/fleet
+fleetctl start fleet-ui.*.service
+fleetctl start *.service
 echo "fleet units:"
 fleetctl list-units
 echo " "
