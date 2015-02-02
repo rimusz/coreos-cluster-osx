@@ -1,12 +1,35 @@
+#cloud-config
+
+coreos:
   update:
     reboot-strategy: off
-# Custom scripts
+  etcd:
+    addr: $public_ipv4:4001
+    bind-addr: 0.0.0.0
+    peer-addr: $public_ipv4:7001
+    cluster-active-size: 1
+    etcd-http-read-timeout: 86400
+    snapshot: true
+  fleet:
+    public-ip: $public_ipv4
+    metadata: role=control
+  units:
+    - name: flanneld.service
+      drop-ins:
+        - name: 50-network-config.conf
+          content: |
+            [Service]
+            ExecStartPre=/usr/bin/etcdctl set /coreos.com/network/config '{ "Network": "10.245.0.0/16" }'
+      command: start
+    - name: etcd.service
+      command: start
+    - name: fleet.service
+      command: start
 write_files:
-
  - path: /etc/systemd/system/docker.service.d/50-insecure-registry.conf
    content: |
-      [Service]
-      Environment=DOCKER_OPTS='--insecure-registry="0.0.0.0/0"'
+     [Service]
+     Environment=DOCKER_OPTS='--insecure-registry="0.0.0.0/0"'
  - path: /home/core/.ssh/id_rsa
    permissions: '0600'
    owner: core:core
@@ -43,4 +66,3 @@ write_files:
    owner: core:core
    content: |
      ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDXxUqHedGkdM4L4ADKD5gHU/RJIhJH/ZOMcbz1ztmE9MYJevk/rQfm9T9g6tXyxBHnjaKcPDF8C+GfzrId7/Dx1f+DiSs0MH7Q0UvV9tD0GS0axqgCmDltYwaMGBVOnxYmUN9bvNiolC7/CNn3SjPoSkvj4OHMCf9bQlRdaIWAJSkoMcnNkhnN5vLAtwn/yOeAyHGlp705IMiRH2LlA2R6otmFHSQHrkGr/wpu0WJt27EBTIarFeei7dAHlUf1zhStry/OEyqwEKiEo+4fk4vPZXiNyKNklju/I1qFcbc8HwbDVzTtdlQCURQO4losDmQgFdI4wz1flOOrsK+1+vPb core@core-01
-
