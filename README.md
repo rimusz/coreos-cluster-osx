@@ -1,7 +1,7 @@
 CoreOS-Vagrant Cluster GUI for OS X
 ============================
 
-CoreOS-Vagrant Cluster GUI for Mac OS X is a Mac Status bar App which works like a wrapper around the [coreos-vagrant](https://github.com/coreos/coreos-vagrant) command line tool and supports 3 cluster machines. A standalone one can be found here [CoreOS-Vagrant GUI](https://github.com/rimusz/coreos-osx-gui).
+CoreOS-Vagrant Cluster GUI for Mac OS X is a Mac Status bar App which works like a wrapper around the [coreos-vagrant](https://github.com/coreos/coreos-vagrant) command line tool and bootstraps CoreOS cluster with one control (etcd) and two worker machines. Flannel network is set too.
  
 [CoreOS](https://coreos.com) is a Linux distribution made specifically to run [Docker](https://www.docker.io/) containers.
 [CoreOS-Vagrant](https://github.com/coreos/coreos-vagrant) is made to run on VirtualBox and VMWare VMs.
@@ -27,7 +27,7 @@ Required software
  home folder e.g '/Users/someuser/coreos-osx-cluster'
 2) Will clone latest coreos-vagrant from git
 3) user-data file will have fleet, etcd and 'reboot off' set
-4) 3 cluster nodes will be set with IPs: '172.17.9.100, 172.17.9.101 and 172.17.9.102'
+4) control (etcd) machine will be set with IP `172.17.9.101` and two cluster nodes with IPs: `172.17.9.102 and 172.17.9.103`
 5) Will download and install fleetctl and etcdctl clients to ~/coreos-osx-cluster/bin/
 6) Will download latest vagrant VBox and run vagrant up to initialise VM
 ````
@@ -40,16 +40,14 @@ Just start `CoreOS Cluster GUI` application and you will find a small icon with 
 * There you can `Up`, `Suspend`, `Halt`, `Reload` CoreOS vagrant VMs
 * Under `Up' and 'OS shell` OS Shell will have such environment set:
 ````
-1) etcd discovery token will be automaticly replaced from 'https://discovery.etcd.io/new' 
-on each 'vagrant up'
-2) Path to ~/coreos-osx-cluster/bin where etcdclt and fleetctl binaries are stored
-3) etcd endpoint - export ETCDCTL_PEERS=http://172.17.9.101:4001
-4) fleetctl endpoint - export FLEETCTL_ENDPOINT=http://172.17.9.101:4001
+1) Path to ~/coreos-osx-cluster/bin where etcdclt and fleetctl binaries are stored
+2) etcd endpoint - export ETCDCTL_PEERS=http://172.17.9.101:4001
+3) fleetctl endpoint - export FLEETCTL_ENDPOINT=http://172.17.9.101:4001
 ````
 
 * `Updates/Force CoreOS update` will be run `sudo update_engine_client -update` on each CoreOS VM.
-* `Updates/Check for updates` will update etcdclt and fleetctl OS X clients to the same versions as CoreOS VMs run. It will store downloads from github `coreos-vagrant` in `~/coreos-osx-cluster/github` folder, it will not overwrite user's `Vagrantfile, config.rb and users-data` files.
-* `SSH to corec-01/02/03` menu options will open VM shells
+* `Updates/Check for updates` will update etcdclt and fleetctl OS X clients to the same versions as CoreOS VMs run. 
+* `SSH to control-01 and node-01/02` menu options will open VM shells.
 
 
 Other links
