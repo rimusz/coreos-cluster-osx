@@ -33,7 +33,7 @@ fleetctl start *.*.service
 echo "fleetctl list-units:"
 fleetctl list-units
 
-cd ~/coreos-osx-cluster/kubernetes
+cd ~/coreos-osx-cluster/fleet
 
 # open bash shell
 /bin/bash
