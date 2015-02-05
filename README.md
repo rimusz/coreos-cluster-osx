@@ -10,7 +10,7 @@ CoreOS-Vagrant Cluster GUI for Mac OS X is a Mac Status bar App which works like
 
 Download
 --------
-Head over to the [Releases Page](https://github.com/rimusz/coreos-osx-gui-cluster/releases) to grab the latest ZIP file.
+Head over to the [Releases Page](https://github.com/rimusz/coreos-osx-gui-cluster/releases) to grab the latest release.
 
 
 How to install
