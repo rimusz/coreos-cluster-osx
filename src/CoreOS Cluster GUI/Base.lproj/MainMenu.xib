@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14E26a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -685,12 +685,6 @@
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="jV7-Ne-Ped"/>
-                <menuItem title="OS Shell" id="dvF-TI-XNx">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <connections>
-                        <action selector="runShell:" target="494" id="2YL-Ek-k33"/>
-                    </connections>
-                </menuItem>
                 <menuItem title="SSH to control-01" id="uFv-AR-Egm">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
@@ -709,6 +703,14 @@
                         <action selector="runNode2:" target="494" id="UCO-hw-Msg"/>
                     </connections>
                 </menuItem>
+                <menuItem isSeparatorItem="YES" id="UJa-g7-ThK"/>
+                <menuItem title="OS Shell" id="dvF-TI-XNx">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="runShell:" target="494" id="2YL-Ek-k33"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="5rX-ih-coH"/>
                 <menuItem title="Fleet-UI" id="7cD-x6-wub">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
@@ -720,16 +722,22 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Updates" id="DFA-8C-ne3">
                         <items>
+                            <menuItem title="Update OS X fleetctl and etcdctl" id="sEE-aC-0Ob" userLabel="Update OS X fleetctl and etcdctl">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="updates:" target="494" id="3Va-Du-QFm"/>
+                                </connections>
+                            </menuItem>
                             <menuItem title="Force CoreOS Update" id="KYE-xq-LpJ" userLabel="Force CoreOS update">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="force_coreos_update:" target="494" id="0IT-Vl-bUB"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Check for updates" id="sEE-aC-0Ob">
+                            <menuItem title="Check updates for CoreOS vbox" id="dZ3-1h-bmr">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
-                                    <action selector="updates:" target="494" id="3Va-Du-QFm"/>
+                                    <action selector="updateVbox:" target="494" id="2zu-0h-NDP"/>
                                 </connections>
                             </menuItem>
                         </items>

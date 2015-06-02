@@ -11,14 +11,12 @@ read -p "$*"
 }
 
 cd ~/coreos-osx-cluster/control
-vagrant box update
 vagrant up
 #
 cd ~/coreos-osx-cluster/workers
-vagrant box update
 vagrant up
 
-# download latest versions of etcdctl, fleetctl and kubectl
+# download latest versions of etcdctl and fleetctl
 cd ~/coreos-osx-cluster/control
 LATEST_RELEASE=$(vagrant ssh control-01 -c "etcdctl --version" | cut -d " " -f 3- | tr -d '\r' )
 cd ~/coreos-osx-cluster/bin

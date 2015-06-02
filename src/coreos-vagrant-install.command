@@ -11,6 +11,7 @@
     mkdir ~/coreos-osx-cluster/tmp
     mkdir ~/coreos-osx-cluster/bin
     mkdir ~/coreos-osx-cluster/fleet
+    mkdir ~/coreos-osx-cluster/my_fleet
     mkdir -p ~/coreos-osx-cluster/control
     mkdir -p ~/coreos-osx-cluster/workers
 

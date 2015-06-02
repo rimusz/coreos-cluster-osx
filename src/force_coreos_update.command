@@ -17,6 +17,7 @@ echo "Done with control-01 "
 echo " "
 #
 cd ~/coreos-osx-cluster/workers
+vagrant up
 vagrant ssh node-01 -c "sudo update_engine_client -update"
 echo "Done with node-01 "
 echo " "
