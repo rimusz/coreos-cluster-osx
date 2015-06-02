@@ -32,11 +32,7 @@ sed -i "" 's/#$vm_memory = 1024/$vm_memory = 512/' ~/coreos-osx-cluster/control/
 cp ~/coreos-osx-cluster/tmp/config.rb.sample ~/coreos-osx-cluster/workers/config.rb
 sed -i "" 's/#$instance_name_prefix="core"/$instance_name_prefix="node"/' ~/coreos-osx-cluster/workers/config.rb
 # set nodes to 2
-sed -i "" 's/$num_instances=1/$num_instances=2/' ~/coreos-osx-cluster/workers/config.rb
-
-# clean up tmp folder
-rm -rf ~/coreos-osx-cluster/tmp/*
-rm -rf ~/coreos-osx-cluster/tmp/.*
+sed -i "" 's/[#]$num_instances=1/$num_instances=2/' ~/coreos-osx-cluster/workers/config.rb
 
 ###
 
@@ -145,7 +141,6 @@ curl -L -o fleet.zip "https://github.com/coreos/fleet/releases/download/v$LATEST
 unzip -j -o "fleet.zip" "fleet-v$LATEST_RELEASE-darwin-amd64/fleetctl"
 rm -f fleet.zip
 # set fleetctl tunnel
-
 export FLEETCTL_ENDPOINT=http://172.17.9.101:2379
 export FLEETCTL_DRIVER=etcd
 export FLEETCTL_STRICT_HOST_KEY_CHECKING=false

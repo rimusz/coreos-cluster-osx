@@ -2,6 +2,8 @@ CoreOS-Vagrant Cluster GUI for OS X
 ============================
 
 CoreOS-Vagrant Cluster GUI for Mac OS X is a Mac Status bar App which works like a wrapper around the [coreos-vagrant](https://github.com/coreos/coreos-vagrant) command line tool and bootstraps CoreOS cluster with one control (etcd) and two worker machines. Flannel network is set too.
+
+Now supports etcd2.
  
 [CoreOS](https://coreos.com) is a Linux distribution made specifically to run [Docker](https://www.docker.io/) containers.
 [CoreOS-Vagrant](https://github.com/coreos/coreos-vagrant) is made to run on VirtualBox and VMWare VMs.
@@ -17,7 +19,7 @@ How to install
 ----------
 
 Required software
-* [VirtualBox for Mac OS X hosts](https://www.virtualbox.org/wiki/Downloads), [Vagrant for Mac OS X](http://www.vagrantup.com/downloads.html) and [iTerm 2](http://www.iterm2.com/#/section/downloads)
+* [VirtualBox](https://www.virtualbox.org/wiki/Downloads), [Vagrant](http://www.vagrantup.com/downloads.html) and [iTerm 2](http://www.iterm2.com/#/section/downloads)
 
 * Download `CoreOS Cluster GUI latest.zip` from the [Releases Page](https://github.com/rimusz/coreos-osx-gui-cluster/releases) and unzip it.
 * Start the `CoreOS Cluster GUI` and from menu `Setup` choose `Initial setup of CoreOS-Vagrant Cluster` 
@@ -45,9 +47,11 @@ Just start `CoreOS Cluster GUI` application and you will find a small icon with 
 3) fleetctl endpoint - export FLEETCTL_ENDPOINT=http://172.17.9.101:4001
 ````
 
-* `Updates/Force CoreOS update` will be run `sudo update_engine_client -update` on each CoreOS VM.
-* `Updates/Check for updates` will update etcdclt and fleetctl OS X clients to the same versions as CoreOS VMs run. 
 * `SSH to control-01 and node-01/02` menu options will open VM shells.
+* Updates/Update OS X fleetctl and etcdclt will update fleetctl, etcdclt clients to the same versions as CoreOS VMs run.
+* Updates/Force CoreOS update will be run sudo update_engine_client -update on each CoreOS VM.
+* Updates/Check updates for CoreOS vbox will update CoreOS VM vagrant box.
+* [Fleet-UI](http://fleetui.com) dashboard will show running fleet units and etc
 
 
 Other links
