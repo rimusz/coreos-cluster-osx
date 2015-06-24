@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 47;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -239,7 +239,7 @@
 				};
 			};
 			buildConfigurationList = 01E2853518A6C4E300BC630D /* Build configuration list for PBXProject "CoreOS Cluster GUI" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 6.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -410,7 +410,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CoreOS Cluster GUI/CoreOS Cluster GUI-Prefix.pch";
 				INFOPLIST_FILE = "CoreOS Cluster GUI/CoreOS Cluster GUI-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "CoreOS Cluster GUI";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -427,7 +427,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CoreOS Cluster GUI/CoreOS Cluster GUI-Prefix.pch";
 				INFOPLIST_FILE = "CoreOS Cluster GUI/CoreOS Cluster GUI-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "CoreOS Cluster GUI";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;

@@ -3,7 +3,15 @@ CoreOS-Vagrant Cluster GUI for OS X
 
 CoreOS-Vagrant Cluster GUI for Mac OS X is a Mac Status bar App which works like a wrapper around the [coreos-vagrant](https://github.com/coreos/coreos-vagrant) command line tool and bootstraps CoreOS cluster with one control (etcd) and two worker machines. Flannel network is set too.
 
-Now supports etcd2.
+Supports etcd2 in all CoreOS release channels.
+
+####Note: OS X El Capitan:
+
+* If you do a fresh install OS X El Capitan support will be enabled
+
+* Otherwise run: `ln -s /opt/vagrant/bin/vagrant /usr/local/bin/vagrant >/dev/null 2>&1`
+
+
  
 [CoreOS](https://coreos.com) is a Linux distribution made specifically to run [Docker](https://www.docker.io/) containers.
 [CoreOS-Vagrant](https://github.com/coreos/coreos-vagrant) is made to run on VirtualBox and VMWare VMs.

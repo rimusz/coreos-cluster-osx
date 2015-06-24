@@ -6,6 +6,9 @@
 #  Created by Rimantas on 01/04/2014.
 #  Copyright (c) 2014 Rimantas Mocevicius. All rights reserved.
 
+# create symbolic link for vagrant to work on OS X 10.11
+ln -s /opt/vagrant/bin/vagrant /usr/local/bin/vagrant >/dev/null 2>&1
+
     # create "coreos-osx-cluster" and other required folders and files at user's home folder where all the data will be stored
     mkdir ~/coreos-osx-cluster
     mkdir ~/coreos-osx-cluster/tmp
