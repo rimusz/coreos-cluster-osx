@@ -28,15 +28,17 @@ sed -i "" 's/172.17.8.#{i+100}/172.17.9.#{i+101}/g' ~/coreos-osx-cluster/workers
 cp ~/coreos-osx-cluster/tmp/config.rb.sample ~/coreos-osx-cluster/control/config.rb
 sed -i "" 's/#$instance_name_prefix="core"/$instance_name_prefix="control"/' ~/coreos-osx-cluster/control/config.rb
 sed -i "" 's/#$vm_memory = 1024/$vm_memory = 512/' ~/coreos-osx-cluster/control/config.rb
+sed -i "" 's/File.open/#File.open/' ~/coreos-osx-cluster/control/config.rb
 # nodes
 cp ~/coreos-osx-cluster/tmp/config.rb.sample ~/coreos-osx-cluster/workers/config.rb
 sed -i "" 's/#$instance_name_prefix="core"/$instance_name_prefix="node"/' ~/coreos-osx-cluster/workers/config.rb
+sed -i "" 's/File.open/#File.open/' ~/coreos-osx-cluster/workers/config.rb
 # set nodes to 2
 sed -i "" 's/$num_instances=1/$num_instances=2/' ~/coreos-osx-cluster/workers/config.rb
 
 # clean up tmp folder
-rm -rf ~/coreos-osx-cluster/tmp/*
-rm -rf ~/coreos-osx-cluster/tmp/.*
+rm -rf ~/coreos-osx-cluster/tmp/* >/dev/null 2>&1 &
+rm -rf ~/coreos-osx-cluster/tmp/.* >/dev/null 2>&1 &
 
 ###
 
