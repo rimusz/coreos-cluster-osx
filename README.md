@@ -1,4 +1,4 @@
-CoreOS-Vagrant Cluster GUI for OS X
+CoreOS-Vagrant Cluster for OS X
 ============================
 
 CoreOS-Vagrant Cluster GUI for Mac OS X is a Mac Status bar App which works like a wrapper around the [coreos-vagrant](https://github.com/coreos/coreos-vagrant) command line tool and bootstraps CoreOS cluster with one control (etcd) and two worker machines. Flannel network is set too.
@@ -54,7 +54,7 @@ Just start `CoreOS Cluster GUI` application and you will find a small icon with 
 
 Other Apps
 -----------
-* Standalone CoreOS VM version of OS X App can be found here [CoreOS-OSX GUI](https://github.com/rimusz/coreos-osx-gui).
+* Standalone CoreOS VM version of OS X App can be found here [CoreOS-OSX](https://github.com/rimusz/coreos-osx).
 * Kubernetes Solo Cluster VM App can be found here [Kube Solo](https://github.com/rimusz/kube-solo-osx)
-* Kubernetes Solo Vagrant based Cluster VM App can be found here [CoreOS-Vagrant Kubernetes Solo GUI](https://github.com/rimusz/coreos-osx-gui-kubernetes-solo)
-* Kubernetes Cluster one CoreOS VM of OS X App can be found here [CoreOS-Vagrant Kubernetes Cluster GUI ](https://github.com/rimusz/coreos-osx-gui-kubernetes-cluster).
+* Kubernetes Solo Vagrant based Cluster VM App can be found here [CoreOS-Vagrant Kubernetes Solo](https://github.com/rimusz/coreos-osx-kubernetes-solo)
+* Kubernetes Cluster one CoreOS VM of OS X App can be found here [CoreOS-Vagrant Kubernetes Cluster](https://github.com/rimusz/coreos-osx-kubernetes-cluster).
